@@ -9,14 +9,15 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
 
     <div class="jumbotron jumbotron-fluid banner">
         <div class="container text-center">
           <h1 class="display-4 title-jumbo my-10">Lord of the Rings Trivia</h1> <br/>
-          <button type="button" class="btn btn-primary new-game">New Game</button>
+          <button type="button" class="btn btn-primary new-game" id="new-game" onclick="newGame()">New Game</button>
+          
         </div>
     </div>
 
@@ -33,52 +34,268 @@
 
         <div class="row">
 
-            <div class="col-12 text-center">
-                <h3 id="question-txt">What did the dog ask the cat?</h3><br/>
-            </div>
-
+                <div class="col-12 text-center">
+                    <h1 id="timer"></h1><br/>
+                </div>
+        
         </div>
 
-        <div class="row">
+        <div class="question-area">
+            <form onsubmit="return onSubmit()">
+                <div class="row">
 
-            <div class="col-12 text-center">
-                <h4 id="answer-area"></h4>
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">Who said 'Nine companions. So be it. You shall be the fellowship of the ring.'?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        
+                            <input type="radio" name="q1" value="a"> Elrond
+                            <input type="radio" name="q1" value="b"> Gandalf
+                            <input type="radio" name="q1" value="c"> Aragorn
+                            <input type="radio" name="q1" value="d"> Celeborn
+                        
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">How many Rings of Power were forged in the second age?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                       
+                            <input type="radio" name="q2" value="a"> 1
+                            <input type="radio" name="q2" value="b"> 19
+                            <input type="radio" name="q2" value="c"> 20
+                            <input type="radio" name="q2" value="d"> 13
+                      
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">What was Gollums hobbit name?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        
+                            <input type="radio" name="q3" value="a"> Deagol
+                            <input type="radio" name="q3" value="b"> Bandobras
+                            <input type="radio" name="q3" value="c"> Smeagol
+                            <input type="radio" name="q3" value="d"> Tobold
+                        
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">Who said 'I don't know half of you half as well as I should like, and I like less than half of you half as well as you deserve.'?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        
+                            <input type="radio" name="q4" value="a"> Gandalf
+                            <input type="radio" name="q4" value="b"> Merry
+                            <input type="radio" name="q4" value="c"> Pippin
+                            <input type="radio" name="q4" value="d"> Bilbo
+                        
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">Who is Shelob?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        
+                            <input type="radio" name="q5" value="a"> An ent that befriends Merry and Pippin
+                            <input type="radio" name="q5" value="b"> A giant spider that tries to eat Frodo and Sam
+                            <input type="radio" name="q5" value="c"> An elf queen
+                            <input type="radio" name="q5" value="d"> Uruk hai leader
+                        
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">Which hobbit stabs the Witch King?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                       
+                            <input type="radio" name="q6" value="a"> Frodo
+                            <input type="radio" name="q6" value="b"> Merry
+                            <input type="radio" name="q6" value="c"> Pippin
+                            <input type="radio" name="q6" value="d"> Sam
+                      
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">Who does Saruman nickname the Bird-whisperer?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                       
+                            <input type="radio" name="gender" value="a"> Radagast
+                            <input type="radio" name="gender" value="b"> Gandalf
+                            <input type="radio" name="gender" value="c"> Legolas
+                            <input type="radio" name="gender" value="d"> Sam
+                       
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">Who stabs Saruman in the beginning the The Return of the King?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                   
+                            <input type="radio" name="gender" value="a"> Theoden
+                            <input type="radio" name="gender" value="b"> Aragorn
+                            <input type="radio" name="gender" value="c"> Gandalf
+                            <input type="radio" name="gender" value="d"> Wormtongue
+                      
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">What is the name of the Balrog that attacks the fellowship in the Mines of Moria?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                    
+                            <input type="radio" name="gender" value="a"> Gotmog
+                            <input type="radio" name="gender" value="b"> Bungo
+                            <input type="radio" name="gender" value="c"> Lungorthin
+                            <input type="radio" name="gender" value="d"> Durin Bane
+                      
+                    </div>
+                
+
+                </div>
+
+                <br/>
+
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h3 id="question-txt">What meal comes after elevensies for hobbits?</h3><br/>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                       
+                            <input type="radio" name="gender" value="a"> Afternoon tea
+                            <input type="radio" name="gender" value="b"> Dinner
+                            <input type="radio" name="gender" value="c"> Luncheon
+                            <input type="radio" name="gender" value="d"> Supper
+                       
+                    </div>
+                
+
+                </div>
+
+                <br/>
             </div>
 
 
-        </div>
-
-        <div class="row">
-
-            <div class="col-6 text-center answer">
-                <button type="button" class="btn btn-primary btn-lg btn-block answer-btn" id="btn-one" data-num="1">Block level button</button>
-            </div>
-
-            <div class="col-6 text-center answer">
-                <button type="button" class="btn btn-primary btn-lg btn-block answer-btn"  id="btn-two" data-num="2">Block level button</button>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-6 text-center answer">
-                <button type="button" class="btn btn-primary btn-lg btn-block answer-btn"  id="btn-three" data-num="3">Block level button</button>
-            </div>
-
-            <div class="col-6 text-center answer">
-                <button type="button" class="btn btn-primary btn-lg btn-block answer-btn"  id="btn-four" data-num="4">Block level button</button>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-12 text-center">
-                <h1 id="timer">60</h1><br/>
-            </div>
     
-        </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </div>
+        </form>
 
 
 
